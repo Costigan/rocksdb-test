@@ -12,7 +12,7 @@ namespace RocksDB_test1
     public class FileWalker
     {
         private static readonly string[] IgnoreTheseDirectories = { ".git", "ignored_data" };
-        public static char[] DirectorySplitChars = new char[] { '/', '\\' };
+        public static char[] DirectorySplitChars = { '/', '\\' };
 
         private static readonly RegexOptions Options = RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Singleline;
         private static readonly Regex ITOSArchiveFilePattern = new Regex(@"^.*\.\d+$", Options);
@@ -124,7 +124,15 @@ namespace RocksDB_test1
             }
         }
 
-        protected static bool KeepThisFile(string filename) =>
+        protected static bool KeepThisFile(string filename)
+        {
+            Console.Write($"KeepThisFile: {filename} -> ");
+            var r = KeepThisFile2(filename);
+            Console.WriteLine(r);
+            return r;
+        }
+
+        protected static bool KeepThisFile2(string filename) =>
             ".H".Equals(Path.GetExtension(filename), StringComparison.InvariantCultureIgnoreCase)
             || ITOSArchiveFilePattern.IsMatch(filename)
             || DatRecognizer.IsMatch(filename)
