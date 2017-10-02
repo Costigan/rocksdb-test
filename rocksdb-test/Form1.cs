@@ -56,6 +56,25 @@ namespace rocksdb_test
             }
         }
 
+        static void v0()
+        {
+            var options = new DbOptions().SetCreateIfMissing(true);
+            using (var db = RocksDb.Open(options, "db1"))
+            {
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                var count = 0;
+                for (var i=0;i<1000000;i++)
+                {
+                    var key = BitConverter.GetBytes(i);
+                    db.Put(key, key);
+                    count++;
+                }
+                stopwatch.Stop();
+                Console.WriteLine($"{count} numbers; {count / (stopwatch.ElapsedMilliseconds / 1000d)} packets/sec");
+            }
+        }
+
         static void v1()
         {
             var options = new DbOptions()
@@ -231,7 +250,7 @@ namespace rocksdb_test
         private void button1_Click(object sender, EventArgs e)
         {
             //Test1();
-            v1();
+            v0();
             Console.WriteLine(@"Finished");
         }
     }
