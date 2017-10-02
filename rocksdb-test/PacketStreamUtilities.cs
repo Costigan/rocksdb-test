@@ -51,7 +51,7 @@ namespace RocksDB_test1
 
         public static IPacketFile FilesToStream(List<string> filenames)
         {
-            if (filenames.Count < 1) return null;
+            if (filenames.Count < 1) return new PacketFileSequence<CFEPacketFile>(filenames);
             switch (PacketFile.GetFileTypeId(filenames[0]))
             {
                 case PacketFile.PacketFileType.CFE_PACKET_FILE:

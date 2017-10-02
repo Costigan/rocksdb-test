@@ -21,7 +21,7 @@ namespace rocksdb_test
         bool isFinished = false;
 
 #if MONO
-        public static string DataDirectory = @"/home/mshirley/data/2015-08-25";
+        public static string DataDirectory = @"/home/mshirley/data/2015-08-25/";
 #else
         public static string DataDirectory = @"C:\RP\data\2015-08-25";
 #endif
