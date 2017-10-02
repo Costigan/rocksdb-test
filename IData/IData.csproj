@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B11A82E8-30A2-4B8D-B2DE-118B815C3AB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IData</RootNamespace>
+    <AssemblyName>IData</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CompareOption.cs" />
+    <Compile Include="Data\Comparer.cs" />
+    <Compile Include="Data\Data.cs" />
+    <Compile Include="Data\DataComparer.cs" />
+    <Compile Include="Data\DataEqualityComparer.cs" />
+    <Compile Include="Data\DataExtensions.cs" />
+    <Compile Include="Data\DataIndexerPersist.cs" />
+    <Compile Include="Data\DataPersist.cs" />
+    <Compile Include="Data\DataToObjects.cs" />
+    <Compile Include="Data\DataToString.cs" />
+    <Compile Include="Data\DataTransformer.cs" />
+    <Compile Include="Data\DataType.cs" />
+    <Compile Include="Data\DataTypeUtils.cs" />
+    <Compile Include="Data\EqualityComparer.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="Data\IndexerPersist.cs" />
+    <Compile Include="Data\IToObjects.cs" />
+    <Compile Include="Data\IToString.cs" />
+    <Compile Include="Data\ITransformer.cs" />
+    <Compile Include="Data\Persist.cs" />
+    <Compile Include="Data\Slots.cs" />
+    <Compile Include="Data\SlotsBuilder.cs" />
+    <Compile Include="Data\Transformer.cs" />
+    <Compile Include="Data\ValueToObjects.cs" />
+    <Compile Include="Data\ValueToString.cs" />
+    <Compile Include="General\Buffers\BitUtils.cs" />
+    <Compile Include="General\Collections\Cache.cs" />
+    <Compile Include="General\Collections\IOrderedSet.cs" />
+    <Compile Include="General\Collections\IOrderedSetFactory.cs" />
+    <Compile Include="General\Collections\OrderedSet.cs" />
+    <Compile Include="General\Collections\SortedSetPatch.cs" />
+    <Compile Include="General\Communication\ClientConnection.cs" />
+    <Compile Include="General\Communication\Packet.cs" />
+    <Compile Include="General\Communication\ServerConnection.cs" />
+    <Compile Include="General\Communication\TcpServer.cs" />
+    <Compile Include="General\Comparers\BigEndianByteArrayComparer.cs" />
+    <Compile Include="General\Comparers\BigEndianByteArrayEqualityComparer.cs" />
+    <Compile Include="General\Comparers\ByteOrder.cs" />
+    <Compile Include="General\Comparers\CommonArray.cs" />
+    <Compile Include="General\Comparers\ComparerInvertor.cs" />
+    <Compile Include="General\Comparers\KeyValuePairComparer.cs" />
+    <Compile Include="General\Comparers\LittleEndianByteArrayComparer.cs" />
+    <Compile Include="General\Comparers\LittleEndianByteArrayEqualityComparer.cs" />
+    <Compile Include="General\Comparers\SortOrder.cs" />
+    <Compile Include="General\Compression\CountCompression.cs" />
+    <Compile Include="General\Compression\DeltaCompression.cs" />
+    <Compile Include="General\Diagnostics\MemoryMonitor.cs" />
+    <Compile Include="General\Environment.cs" />
+    <Compile Include="General\Extensions\ArrayExtensions.cs" />
+    <Compile Include="General\Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="General\Extensions\DecimalExtensions.cs" />
+    <Compile Include="General\Extensions\ExpressionExtensions.cs" />
+    <Compile Include="General\Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="General\Extensions\IListExtensions.cs" />
+    <Compile Include="General\Extensions\KeyValuePairExtensions.cs" />
+    <Compile Include="General\Extensions\ListExtensions.cs" />
+    <Compile Include="General\Extensions\SortedSetExtensions.cs" />
+    <Compile Include="General\Extensions\StopwatchExtensions.cs" />
+    <Compile Include="General\Extensions\StringExtensions.cs" />
+    <Compile Include="General\Extensions\TypeExtensions.cs" />
+    <Compile Include="General\IO\AtomicFile.cs" />
+    <Compile Include="General\IO\IOUtils.cs" />
+    <Compile Include="General\IO\OptimizedFileStream.cs" />
+    <Compile Include="General\Mathematics\MathUtils.cs" />
+    <Compile Include="General\Persist\BooleanIndexerPersist.cs" />
+    <Compile Include="General\Persist\ByteArrayIndexerPersist.cs" />
+    <Compile Include="General\Persist\DateTimeIndexerPersist.cs" />
+    <Compile Include="General\Persist\FloatIndexerPersist.cs" />
+    <Compile Include="General\Persist\IIndexerPersist.cs" />
+    <Compile Include="General\Persist\IntegerIndexerPersist.cs" />
+    <Compile Include="General\Persist\IPersist.cs" />
+    <Compile Include="General\Persist\StringIndexerPersist.cs" />
+    <Compile Include="General\Persist\TimeSpanIndexerPersist.cs" />
+    <Compile Include="General\Threading\Countdown.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
