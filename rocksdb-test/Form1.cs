@@ -18,9 +18,13 @@ namespace rocksdb_test
 {
     public partial class Form1 : Form
     {
-        RocksDb db = null;
         bool isFinished = false;
 
+#if MONO
+        public static string DataDirectory = @"/home/mshirley/data/2015-08-25";
+#else
+        public static string DataDirectory = @"C:\RP\data\2015-08-25";
+#endif
         public Form1()
         {
             InitializeComponent();
@@ -61,7 +65,7 @@ namespace rocksdb_test
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
                 var count = 0;
-                foreach (var p in PacketStreamUtilities.PacketsFromFileTree(@"C:\RP\data\2015-08-25"))
+                foreach (var p in PacketStreamUtilities.PacketsFromFileTree(DataDirectory))
                 {
                     var len = PacketAccessor.Length(p);
                     if (len < 5)
@@ -109,7 +113,7 @@ namespace rocksdb_test
                 var addStopwatch = new Stopwatch();
                 elapsedStopwatch.Start();
                 var count = 0;
-                foreach (var p in PacketStreamUtilities.PacketsFromFileTree(@"C:\RP\data\2015-08-25"))
+                foreach (var p in PacketStreamUtilities.PacketsFromFileTree(DataDirectory))
                 {
                     var len = PacketAccessor.Length(p);
                     if (len < 5)
@@ -158,7 +162,7 @@ namespace rocksdb_test
             var addStopwatch = new Stopwatch();
             elapsedStopwatch.Start();
             var count = 0;
-            foreach (var p in PacketStreamUtilities.PacketsFromFileTree(@"C:\RP\data\2015-08-25"))
+            foreach (var p in PacketStreamUtilities.PacketsFromFileTree(DataDirectory))
             {
                 var len = PacketAccessor.Length(p);
                 if (len < 5)
@@ -226,7 +230,9 @@ namespace rocksdb_test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Test1();
+            //Test1();
+            v1();
+            Console.WriteLine(@"Finished");
         }
     }
 
